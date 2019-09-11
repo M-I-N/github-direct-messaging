@@ -17,6 +17,7 @@ class FollowerListViewController: UITableViewController {
     weak var delegate: FollowerListViewControllerDelegate?
 
     private let viewModel: FollowerListViewModel
+    private lazy var activityIndicatorView = UIActivityIndicatorView(style: .gray)
 
     init(viewModel: FollowerListViewModel) {
         self.viewModel = viewModel
@@ -31,6 +32,15 @@ class FollowerListViewController: UITableViewController {
         super.viewDidLoad()
         title = viewModel.title
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.backgroundView = activityIndicatorView    // show loading for empty table view
+        tableView.tableFooterView = UIView()                // for hiding separators when there is no cell
+        // show a progress before fetching from network
+        activityIndicatorView.startAnimating()
+        viewModel.fetchFollowers { [unowned self] in
+            // hide progress before fetching from network
+            self.activityIndicatorView.stopAnimating()
+            self.tableView.reloadData()
+        }
     }
 
 }

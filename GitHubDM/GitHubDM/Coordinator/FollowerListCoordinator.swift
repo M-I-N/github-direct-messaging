@@ -18,7 +18,7 @@ class FollowerListCoordinator: Coordinator {
     }
 
     func start() {
-        let viewModel = FollowerListViewModel(followers: User.dummyUsers)
+        let viewModel = FollowerListViewModel(client: GitHubClient())
         let followerListViewController = FollowerListViewController(viewModel: viewModel)
         followerListViewController.delegate = self
         presenter.pushViewController(followerListViewController, animated: true)
