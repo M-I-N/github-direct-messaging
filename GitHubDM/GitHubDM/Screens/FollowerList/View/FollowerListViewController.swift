@@ -1,5 +1,5 @@
 //
-//  FollowersListViewController.swift
+//  FollowerListViewController.swift
 //  GitHubDM
 //
 //  Created by Mufakkharul Islam Nayem on 9/11/19.
@@ -8,7 +8,13 @@
 
 import UIKit
 
-class FollowersListViewController: UITableViewController {
+protocol FollowerListViewControllerDelegate: class {
+    func followerListViewController(_ controller: FollowerListViewController, didSelect follower: User)
+}
+
+class FollowerListViewController: UITableViewController {
+
+    weak var delegate: FollowerListViewControllerDelegate?
 
     private let viewModel: FollowerListViewModel
 
@@ -29,8 +35,8 @@ class FollowersListViewController: UITableViewController {
 
 }
 
-// MARK: - Table view data source
-extension FollowersListViewController {
+// MARK: - Table view data source and delegate
+extension FollowerListViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.followers.count
@@ -45,6 +51,11 @@ extension FollowersListViewController {
         cell.textLabel?.text = follower.login
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let follower = viewModel.followers[indexPath.row]
+        delegate?.followerListViewController(self, didSelect: follower)
     }
     
 }

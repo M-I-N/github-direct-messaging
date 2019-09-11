@@ -12,10 +12,13 @@
 		AF973E8E2328F29F00973246 /* FollowerListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973E8D2328F29F00973246 /* FollowerListCoordinator.swift */; };
 		AF973E932328FE4000973246 /* FollowerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973E922328FE4000973246 /* FollowerListViewModel.swift */; };
 		AF973E982329050000973246 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973E972329050000973246 /* User.swift */; };
+		AF973E9B2329135700973246 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973E9A2329135700973246 /* MessagingViewController.swift */; };
+		AF973E9F2329144400973246 /* MessagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973E9E2329144400973246 /* MessagingViewModel.swift */; };
+		AF973EA2232915BE00973246 /* MessagingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973EA1232915BE00973246 /* MessagingCoordinator.swift */; };
 		AFE1E9DE2328EC69004913FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE1E9DD2328EC69004913FD /* AppDelegate.swift */; };
 		AFE1E9E52328EC6A004913FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE1E9E42328EC6A004913FD /* Assets.xcassets */; };
 		AFE1E9E82328EC6A004913FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE1E9E62328EC6A004913FD /* LaunchScreen.storyboard */; };
-		AFE1E9F02328EE35004913FD /* FollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE1E9EF2328EE35004913FD /* FollowersListViewController.swift */; };
+		AFE1E9F02328EE35004913FD /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE1E9EF2328EE35004913FD /* FollowerListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,12 +27,15 @@
 		AF973E8D2328F29F00973246 /* FollowerListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListCoordinator.swift; sourceTree = "<group>"; };
 		AF973E922328FE4000973246 /* FollowerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewModel.swift; sourceTree = "<group>"; };
 		AF973E972329050000973246 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AF973E9A2329135700973246 /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
+		AF973E9E2329144400973246 /* MessagingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewModel.swift; sourceTree = "<group>"; };
+		AF973EA1232915BE00973246 /* MessagingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingCoordinator.swift; sourceTree = "<group>"; };
 		AFE1E9DA2328EC69004913FD /* GitHubDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE1E9DD2328EC69004913FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE1E9E42328EC6A004913FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFE1E9E72328EC6A004913FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFE1E9E92328EC6A004913FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AFE1E9EF2328EE35004913FD /* FollowersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListViewController.swift; sourceTree = "<group>"; };
+		AFE1E9EF2328EE35004913FD /* FollowerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,7 @@
 				AF973E892328F17600973246 /* Coordinator.swift */,
 				AF973E8B2328F19D00973246 /* ApplicationCoordinator.swift */,
 				AF973E8D2328F29F00973246 /* FollowerListCoordinator.swift */,
+				AF973EA1232915BE00973246 /* MessagingCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -66,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				AF973E902328FDA100973246 /* FollowerList */,
+				AF973E9D2329137900973246 /* DirectMessaging */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -84,6 +92,31 @@
 				AF973E972329050000973246 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AF973E9C2329136A00973246 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF973E9A2329135700973246 /* MessagingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF973E9D2329137900973246 /* DirectMessaging */ = {
+			isa = PBXGroup;
+			children = (
+				AF973E9C2329136A00973246 /* View */,
+				AF973EA02329147F00973246 /* VIewModel */,
+			);
+			path = DirectMessaging;
+			sourceTree = "<group>";
+		};
+		AF973EA02329147F00973246 /* VIewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF973E9E2329144400973246 /* MessagingViewModel.swift */,
+			);
+			path = VIewModel;
 			sourceTree = "<group>";
 		};
 		AFE1E9D12328EC69004913FD = {
@@ -117,7 +150,7 @@
 		AFE1E9F12328EE9D004913FD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AFE1E9EF2328EE35004913FD /* FollowersListViewController.swift */,
+				AFE1E9EF2328EE35004913FD /* FollowerListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,11 +235,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFE1E9F02328EE35004913FD /* FollowersListViewController.swift in Sources */,
+				AFE1E9F02328EE35004913FD /* FollowerListViewController.swift in Sources */,
 				AFE1E9DE2328EC69004913FD /* AppDelegate.swift in Sources */,
+				AF973E9F2329144400973246 /* MessagingViewModel.swift in Sources */,
 				AF973E932328FE4000973246 /* FollowerListViewModel.swift in Sources */,
 				AF973E8A2328F17600973246 /* Coordinator.swift in Sources */,
 				AF973E8C2328F19D00973246 /* ApplicationCoordinator.swift in Sources */,
+				AF973E9B2329135700973246 /* MessagingViewController.swift in Sources */,
+				AF973EA2232915BE00973246 /* MessagingCoordinator.swift in Sources */,
 				AF973E8E2328F29F00973246 /* FollowerListCoordinator.swift in Sources */,
 				AF973E982329050000973246 /* User.swift in Sources */,
 			);

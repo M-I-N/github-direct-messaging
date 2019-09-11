@@ -11,6 +11,7 @@ import UIKit
 class FollowerListCoordinator: Coordinator {
 
     private let presenter: UINavigationController
+    private var messagingCoordinator: MessagingCoordinator?
 
     init(presenter: UINavigationController) {
         self.presenter = presenter
@@ -18,8 +19,17 @@ class FollowerListCoordinator: Coordinator {
 
     func start() {
         let viewModel = FollowerListViewModel(followers: User.dummyUsers)
-        let followerListViewController = FollowersListViewController(viewModel: viewModel)
+        let followerListViewController = FollowerListViewController(viewModel: viewModel)
+        followerListViewController.delegate = self
         presenter.pushViewController(followerListViewController, animated: true)
     }
 
+}
+
+extension FollowerListCoordinator: FollowerListViewControllerDelegate {
+    func followerListViewController(_ controller: FollowerListViewController, didSelect follower: User) {
+        let messagingCoordinator = MessagingCoordinator(presenter: presenter, user: follower)
+        self.messagingCoordinator = messagingCoordinator
+        self.messagingCoordinator?.start()
+    }
 }

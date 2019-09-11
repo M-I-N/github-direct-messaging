@@ -11,6 +11,7 @@ import UIKit
 class ApplicationCoordinator: Coordinator {
 
     private let window: UIWindow
+    private var followerListCoordinator: FollowerListCoordinator?
 
     init(window: UIWindow) {
         self.window = window
@@ -20,8 +21,9 @@ class ApplicationCoordinator: Coordinator {
         let rootViewController = UINavigationController()
         rootViewController.navigationBar.prefersLargeTitles = true
         let followerListCoordinator = FollowerListCoordinator(presenter: rootViewController)
+        self.followerListCoordinator = followerListCoordinator
         window.rootViewController = rootViewController
-        followerListCoordinator.start()
+        self.followerListCoordinator?.start()
         window.makeKeyAndVisible()
     }
 
