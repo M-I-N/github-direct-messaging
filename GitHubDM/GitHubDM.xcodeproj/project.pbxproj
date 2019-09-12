@@ -15,6 +15,13 @@
 		AF973E9B2329135700973246 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973E9A2329135700973246 /* MessagingViewController.swift */; };
 		AF973E9F2329144400973246 /* MessagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973E9E2329144400973246 /* MessagingViewModel.swift */; };
 		AF973EA2232915BE00973246 /* MessagingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973EA1232915BE00973246 /* MessagingCoordinator.swift */; };
+		AFB32F5F232A035E007C15BF /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F5E232A035E007C15BF /* Reusable.swift */; };
+		AFB32F62232A0475007C15BF /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F61232A0475007C15BF /* UITableView+Reusable.swift */; };
+		AFB32F65232A0568007C15BF /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F63232A0568007C15BF /* FollowerTableViewCell.swift */; };
+		AFB32F66232A0568007C15BF /* FollowerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFB32F64232A0568007C15BF /* FollowerTableViewCell.xib */; };
+		AFB32F68232A0613007C15BF /* FollowerTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F67232A0613007C15BF /* FollowerTableViewCellViewModel.swift */; };
+		AFB32F6A232A0C3C007C15BF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F69232A0C3C007C15BF /* String+Extension.swift */; };
+		AFB32F6C232A1425007C15BF /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F6B232A1425007C15BF /* UIImageView+Download.swift */; };
 		AFE1E9DE2328EC69004913FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE1E9DD2328EC69004913FD /* AppDelegate.swift */; };
 		AFE1E9E52328EC6A004913FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE1E9E42328EC6A004913FD /* Assets.xcassets */; };
 		AFE1E9E82328EC6A004913FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE1E9E62328EC6A004913FD /* LaunchScreen.storyboard */; };
@@ -34,6 +41,13 @@
 		AF973E9A2329135700973246 /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
 		AF973E9E2329144400973246 /* MessagingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewModel.swift; sourceTree = "<group>"; };
 		AF973EA1232915BE00973246 /* MessagingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingCoordinator.swift; sourceTree = "<group>"; };
+		AFB32F5E232A035E007C15BF /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		AFB32F61232A0475007C15BF /* UITableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
+		AFB32F63232A0568007C15BF /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
+		AFB32F64232A0568007C15BF /* FollowerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowerTableViewCell.xib; sourceTree = "<group>"; };
+		AFB32F67232A0613007C15BF /* FollowerTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		AFB32F69232A0C3C007C15BF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		AFB32F6B232A1425007C15BF /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
 		AFE1E9DA2328EC69004913FD /* GitHubDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE1E9DD2328EC69004913FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE1E9E42328EC6A004913FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				AF973E922328FE4000973246 /* FollowerListViewModel.swift */,
+				AFB32F67232A0613007C15BF /* FollowerTableViewCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -127,6 +142,17 @@
 			path = VIewModel;
 			sourceTree = "<group>";
 		};
+		AFB32F60232A0458007C15BF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AFB32F5E232A035E007C15BF /* Reusable.swift */,
+				AFB32F61232A0475007C15BF /* UITableView+Reusable.swift */,
+				AFB32F69232A0C3C007C15BF /* String+Extension.swift */,
+				AFB32F6B232A1425007C15BF /* UIImageView+Download.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AFE1E9D12328EC69004913FD = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +179,7 @@
 				AFE8004923293ED400341764 /* Networking */,
 				AFE800522329422200341764 /* Client */,
 				AFE1E9F22328EEBF004913FD /* Resources */,
+				AFB32F60232A0458007C15BF /* Extensions */,
 			);
 			path = GitHubDM;
 			sourceTree = "<group>";
@@ -161,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				AFE1E9EF2328EE35004913FD /* FollowerListViewController.swift */,
+				AFB32F63232A0568007C15BF /* FollowerTableViewCell.swift */,
+				AFB32F64232A0568007C15BF /* FollowerTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFB32F66232A0568007C15BF /* FollowerTableViewCell.xib in Resources */,
 				AFE1E9E82328EC6A004913FD /* LaunchScreen.storyboard in Resources */,
 				AFE1E9E52328EC6A004913FD /* Assets.xcassets in Resources */,
 			);
@@ -266,16 +296,22 @@
 				AFE1E9F02328EE35004913FD /* FollowerListViewController.swift in Sources */,
 				AFE1E9DE2328EC69004913FD /* AppDelegate.swift in Sources */,
 				AF973E9F2329144400973246 /* MessagingViewModel.swift in Sources */,
+				AFB32F6A232A0C3C007C15BF /* String+Extension.swift in Sources */,
 				AFE800512329421C00341764 /* GitHubClient.swift in Sources */,
+				AFB32F62232A0475007C15BF /* UITableView+Reusable.swift in Sources */,
 				AFE8004F23293ED400341764 /* Endpoint.swift in Sources */,
 				AF973E932328FE4000973246 /* FollowerListViewModel.swift in Sources */,
 				AF973E8A2328F17600973246 /* Coordinator.swift in Sources */,
 				AF973E8C2328F19D00973246 /* ApplicationCoordinator.swift in Sources */,
 				AF973E9B2329135700973246 /* MessagingViewController.swift in Sources */,
+				AFB32F5F232A035E007C15BF /* Reusable.swift in Sources */,
+				AFB32F6C232A1425007C15BF /* UIImageView+Download.swift in Sources */,
 				AFE8004E23293ED400341764 /* GenericAPIClient.swift in Sources */,
 				AF973EA2232915BE00973246 /* MessagingCoordinator.swift in Sources */,
+				AFB32F65232A0568007C15BF /* FollowerTableViewCell.swift in Sources */,
 				AF973E8E2328F29F00973246 /* FollowerListCoordinator.swift in Sources */,
 				AF973E982329050000973246 /* User.swift in Sources */,
+				AFB32F68232A0613007C15BF /* FollowerTableViewCellViewModel.swift in Sources */,
 				AFE8004D23293ED400341764 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

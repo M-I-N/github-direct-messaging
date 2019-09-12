@@ -31,9 +31,10 @@ class FollowerListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.registerReusableCell(FollowerTableViewCell.self)
         tableView.backgroundView = activityIndicatorView    // show loading for empty table view
-        tableView.tableFooterView = UIView()                // for hiding separators when there is no cell
+        tableView.rowHeight = 80
+        tableView.separatorStyle = .none                    // separator is handled from the cell design itself
         // show a progress before fetching from network
         activityIndicatorView.startAnimating()
         viewModel.fetchFollowers { [unowned self] in
@@ -53,12 +54,10 @@ extension FollowerListViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.accessoryType = .disclosureIndicator
+        let cell = FollowerTableViewCell.dequeue(fromTableView: tableView, atIndex: indexPath)
 
-        // FIXME: providing data to cell needs to be refactored in a way with ViewModel of cell object
         let follower = viewModel.followers[indexPath.row]
-        cell.textLabel?.text = follower.login
+        cell.viewModel = FollowerTableViewCellViewModel(follower: follower)
 
         return cell
     }
