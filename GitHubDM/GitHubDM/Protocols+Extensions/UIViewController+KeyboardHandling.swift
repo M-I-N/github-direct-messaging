@@ -23,16 +23,41 @@ extension UIViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
-            }
+        guard view.frame.origin.y == 0, let userInfo = notification.userInfo else {
+            return
         }
+        guard let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else {
+            return
+        }
+        guard let keyboardAnimationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else {
+            return
+        }
+        guard let keyboardAnimationCurve = (userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.uintValue else {
+            return
+        }
+        
+        let options = UIView.AnimationOptions(rawValue: keyboardAnimationCurve << 16)
+        
+        UIView.animate(withDuration: keyboardAnimationDuration, delay: 0, options: options, animations: {
+            self.view.frame.origin.y -= keyboardHeight
+        }, completion: nil)
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
+        guard view.frame.origin.y != 0, let userInfo = notification.userInfo else {
+            return
         }
+        guard let keyboardAnimationDuration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else {
+            return
+        }
+        guard let keyboardAnimationCurve = (userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.uintValue else {
+            return
+        }
+        
+        let options = UIView.AnimationOptions(rawValue: keyboardAnimationCurve << 16)
+        
+        UIView.animate(withDuration: keyboardAnimationDuration, delay: 0, options: options, animations: {
+            self.view.frame.origin.y = 0
+        }, completion: nil)
     }
 }
