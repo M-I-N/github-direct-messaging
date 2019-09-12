@@ -10,12 +10,27 @@ import UIKit
 
 class MessagingViewController: UIViewController {
 
+    @IBOutlet private weak var messageInputTextView: UITextView!
+    
     var viewModel: MessagingViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
         navigationItem.largeTitleDisplayMode = .never
+        messageInputTextView.layer.cornerRadius = 20
+        shouldStartHandlingViewForKeyboardAppearnce()
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
+    }
+    
+    deinit {
+        shouldStopHandlingViewForKeyboardAppearance()
     }
 
 }

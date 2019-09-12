@@ -17,13 +17,62 @@
                     <view key="view" contentMode="scaleToFill" id="o53-d7-2rs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7a-bc-Wfe">
+                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
+                                <color key="backgroundColor" red="0.93719607591629028" green="0.93300622701644897" blue="0.9535784125328064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="beL-ck-S0w"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WC9-Yu-bKK">
+                                <rect key="frame" x="10" y="806" width="394" height="40"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yC2-2w-t2b">
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Aa"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderTextColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaU-MC-zHA">
+                                        <rect key="frame" x="356" y="0.0" width="38" height="40"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleColor" red="0.10569038242101669" green="0.48762220144271851" blue="0.9989357590675354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="G5T-aY-WJY"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jWb-8P-6vH" firstAttribute="bottom" secondItem="c7a-bc-Wfe" secondAttribute="bottom" constant="-34" id="6Dx-sP-MMD">
+                                <variation key="heightClass=compact-widthClass=regular" constant="-21"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="c7a-bc-Wfe" secondAttribute="trailing" id="VwB-4f-zGc"/>
+                            <constraint firstItem="c7a-bc-Wfe" firstAttribute="leading" secondItem="o53-d7-2rs" secondAttribute="leading" id="XY6-F6-qXb"/>
+                            <constraint firstItem="WC9-Yu-bKK" firstAttribute="leading" secondItem="jWb-8P-6vH" secondAttribute="leading" constant="10" id="XtN-ic-wKm"/>
+                            <constraint firstItem="WC9-Yu-bKK" firstAttribute="top" secondItem="c7a-bc-Wfe" secondAttribute="top" constant="10" id="sYc-w9-z9Y"/>
+                            <constraint firstItem="jWb-8P-6vH" firstAttribute="trailing" secondItem="WC9-Yu-bKK" secondAttribute="trailing" constant="10" id="tuq-3o-VfV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jWb-8P-6vH"/>
                     </view>
+                    <connections>
+                        <outlet property="messageInputTextView" destination="yC2-2w-t2b" id="JE7-uE-nSW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQK-Yd-dHq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="150"/>
+            <point key="canvasLocation" x="57.971014492753625" y="150"/>
         </scene>
     </scenes>
 </document>

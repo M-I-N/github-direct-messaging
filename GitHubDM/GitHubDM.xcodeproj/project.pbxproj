@@ -24,6 +24,8 @@
 		AFB32F6C232A1425007C15BF /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F6B232A1425007C15BF /* UIImageView+Download.swift */; };
 		AFB32F6E232A40CF007C15BF /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F6D232A40CF007C15BF /* StoryboardInstantiable.swift */; };
 		AFB32F70232A41B4007C15BF /* Messaging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB32F6F232A41B4007C15BF /* Messaging.storyboard */; };
+		AFC01494232A8666008C54A3 /* UITextView+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC01493232A8666008C54A3 /* UITextView+Placeholder.swift */; };
+		AFC01496232AAF55008C54A3 /* UIViewController+KeyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC01495232AAF55008C54A3 /* UIViewController+KeyboardHandling.swift */; };
 		AFE1E9DE2328EC69004913FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE1E9DD2328EC69004913FD /* AppDelegate.swift */; };
 		AFE1E9E52328EC6A004913FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE1E9E42328EC6A004913FD /* Assets.xcassets */; };
 		AFE1E9E82328EC6A004913FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE1E9E62328EC6A004913FD /* LaunchScreen.storyboard */; };
@@ -52,6 +54,8 @@
 		AFB32F6B232A1425007C15BF /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
 		AFB32F6D232A40CF007C15BF /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		AFB32F6F232A41B4007C15BF /* Messaging.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messaging.storyboard; sourceTree = "<group>"; };
+		AFC01493232A8666008C54A3 /* UITextView+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Placeholder.swift"; sourceTree = "<group>"; };
+		AFC01495232AAF55008C54A3 /* UIViewController+KeyboardHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+KeyboardHandling.swift"; sourceTree = "<group>"; };
 		AFE1E9DA2328EC69004913FD /* GitHubDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE1E9DD2328EC69004913FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE1E9E42328EC6A004913FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				AFB32F69232A0C3C007C15BF /* String+Extension.swift */,
 				AFB32F6B232A1425007C15BF /* UIImageView+Download.swift */,
 				AFB32F6D232A40CF007C15BF /* StoryboardInstantiable.swift */,
+				AFC01493232A8666008C54A3 /* UITextView+Placeholder.swift */,
+				AFC01495232AAF55008C54A3 /* UIViewController+KeyboardHandling.swift */,
 			);
 			path = "Protocols+Extensions";
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFE1E9F02328EE35004913FD /* FollowerListViewController.swift in Sources */,
+				AFC01496232AAF55008C54A3 /* UIViewController+KeyboardHandling.swift in Sources */,
 				AFE1E9DE2328EC69004913FD /* AppDelegate.swift in Sources */,
 				AF973E9F2329144400973246 /* MessagingViewModel.swift in Sources */,
 				AFB32F6A232A0C3C007C15BF /* String+Extension.swift in Sources */,
@@ -315,6 +322,7 @@
 				AFB32F5F232A035E007C15BF /* Reusable.swift in Sources */,
 				AFB32F6C232A1425007C15BF /* UIImageView+Download.swift in Sources */,
 				AFE8004E23293ED400341764 /* GenericAPIClient.swift in Sources */,
+				AFC01494232A8666008C54A3 /* UITextView+Placeholder.swift in Sources */,
 				AF973EA2232915BE00973246 /* MessagingCoordinator.swift in Sources */,
 				AFB32F65232A0568007C15BF /* FollowerTableViewCell.swift in Sources */,
 				AF973E8E2328F29F00973246 /* FollowerListCoordinator.swift in Sources */,
