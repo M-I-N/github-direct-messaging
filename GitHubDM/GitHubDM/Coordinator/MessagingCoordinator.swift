@@ -19,8 +19,8 @@ class MessagingCoordinator: Coordinator {
     }
 
     func start() {
-        let viewModel = MessagingViewModel(user: user)
-        let messagingViewController = MessagingViewController(viewModel: viewModel)
+        let messagingViewController = MessagingViewController.instantiateFromStoryboard()
+        messagingViewController.viewModel = MessagingViewModel(user: user)
         presenter.pushViewController(messagingViewController, animated: true)
     }
 

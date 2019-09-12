@@ -22,6 +22,8 @@
 		AFB32F68232A0613007C15BF /* FollowerTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F67232A0613007C15BF /* FollowerTableViewCellViewModel.swift */; };
 		AFB32F6A232A0C3C007C15BF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F69232A0C3C007C15BF /* String+Extension.swift */; };
 		AFB32F6C232A1425007C15BF /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F6B232A1425007C15BF /* UIImageView+Download.swift */; };
+		AFB32F6E232A40CF007C15BF /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F6D232A40CF007C15BF /* StoryboardInstantiable.swift */; };
+		AFB32F70232A41B4007C15BF /* Messaging.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB32F6F232A41B4007C15BF /* Messaging.storyboard */; };
 		AFE1E9DE2328EC69004913FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE1E9DD2328EC69004913FD /* AppDelegate.swift */; };
 		AFE1E9E52328EC6A004913FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE1E9E42328EC6A004913FD /* Assets.xcassets */; };
 		AFE1E9E82328EC6A004913FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE1E9E62328EC6A004913FD /* LaunchScreen.storyboard */; };
@@ -48,6 +50,8 @@
 		AFB32F67232A0613007C15BF /* FollowerTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		AFB32F69232A0C3C007C15BF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		AFB32F6B232A1425007C15BF /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
+		AFB32F6D232A40CF007C15BF /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		AFB32F6F232A41B4007C15BF /* Messaging.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messaging.storyboard; sourceTree = "<group>"; };
 		AFE1E9DA2328EC69004913FD /* GitHubDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE1E9DD2328EC69004913FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE1E9E42328EC6A004913FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				AF973E9A2329135700973246 /* MessagingViewController.swift */,
+				AFB32F6F232A41B4007C15BF /* Messaging.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -142,15 +147,16 @@
 			path = VIewModel;
 			sourceTree = "<group>";
 		};
-		AFB32F60232A0458007C15BF /* Extensions */ = {
+		AFB32F60232A0458007C15BF /* Protocols+Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				AFB32F5E232A035E007C15BF /* Reusable.swift */,
 				AFB32F61232A0475007C15BF /* UITableView+Reusable.swift */,
 				AFB32F69232A0C3C007C15BF /* String+Extension.swift */,
 				AFB32F6B232A1425007C15BF /* UIImageView+Download.swift */,
+				AFB32F6D232A40CF007C15BF /* StoryboardInstantiable.swift */,
 			);
-			path = Extensions;
+			path = "Protocols+Extensions";
 			sourceTree = "<group>";
 		};
 		AFE1E9D12328EC69004913FD = {
@@ -179,7 +185,7 @@
 				AFE8004923293ED400341764 /* Networking */,
 				AFE800522329422200341764 /* Client */,
 				AFE1E9F22328EEBF004913FD /* Resources */,
-				AFB32F60232A0458007C15BF /* Extensions */,
+				AFB32F60232A0458007C15BF /* Protocols+Extensions */,
 			);
 			path = GitHubDM;
 			sourceTree = "<group>";
@@ -281,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFB32F66232A0568007C15BF /* FollowerTableViewCell.xib in Resources */,
+				AFB32F70232A41B4007C15BF /* Messaging.storyboard in Resources */,
 				AFE1E9E82328EC6A004913FD /* LaunchScreen.storyboard in Resources */,
 				AFE1E9E52328EC6A004913FD /* Assets.xcassets in Resources */,
 			);
@@ -297,6 +304,7 @@
 				AFE1E9DE2328EC69004913FD /* AppDelegate.swift in Sources */,
 				AF973E9F2329144400973246 /* MessagingViewModel.swift in Sources */,
 				AFB32F6A232A0C3C007C15BF /* String+Extension.swift in Sources */,
+				AFB32F6E232A40CF007C15BF /* StoryboardInstantiable.swift in Sources */,
 				AFE800512329421C00341764 /* GitHubClient.swift in Sources */,
 				AFB32F62232A0475007C15BF /* UITableView+Reusable.swift in Sources */,
 				AFE8004F23293ED400341764 /* Endpoint.swift in Sources */,
