@@ -31,6 +31,7 @@ class FollowerListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
+        removeNavigationBarBackButtonTitle()
         tableView.registerReusableCell(FollowerTableViewCell.self)
         tableView.backgroundView = activityIndicatorView    // show loading for empty table view
         tableView.rowHeight = 80

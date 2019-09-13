@@ -13,6 +13,9 @@ struct MessagingViewModel {
     let user: User
     let messages: [Message]
 
+    var titleFormattedAsGitHubHandle: String {
+        return title.withMentioninPrefix
+    }
 }
 
 extension MessagingViewModel {

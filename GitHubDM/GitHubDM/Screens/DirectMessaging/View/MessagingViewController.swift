@@ -17,7 +17,7 @@ class MessagingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = viewModel.title
+        title = viewModel.titleFormattedAsGitHubHandle
         navigationItem.largeTitleDisplayMode = .never
         messageInputTextView.layer.cornerRadius = 20
         shouldStartHandlingViewForKeyboardAppearnce()
