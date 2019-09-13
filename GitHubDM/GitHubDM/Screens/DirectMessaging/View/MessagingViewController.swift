@@ -10,6 +10,7 @@ import UIKit
 
 class MessagingViewController: UIViewController {
 
+    @IBOutlet private weak var messagesTableView: UITableView!
     @IBOutlet private weak var messageInputTextView: UITextView!
     
     var viewModel: MessagingViewModel!
@@ -23,6 +24,12 @@ class MessagingViewController: UIViewController {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGestureRecognizer)
+
+        messagesTableView.dataSource = self
+        messagesTableView.registerReusableCell(OutgoingMessageTableViewCell.self)
+        messagesTableView.registerReusableCell(IncomingMessageTableViewCell.self)
+        messagesTableView.rowHeight = UITableView.automaticDimension
+        messagesTableView.estimatedRowHeight = 100
     }
     
     @objc func handleTap() {
@@ -41,4 +48,28 @@ extension MessagingViewController: StoryboardInstantiable {
         return .messaging
     }
     
+}
+
+extension MessagingViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.messages.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let message = viewModel.messages[indexPath.row]
+        switch message.type {
+        case .incoming:
+            let cell = IncomingMessageTableViewCell.dequeue(fromTableView: tableView, atIndex: indexPath)
+            cell.viewModel = IncomingMessageTableViewCellViewModel(message: message)
+            return cell
+        case .outgoing:
+            let cell = OutgoingMessageTableViewCell.dequeue(fromTableView: tableView, atIndex: indexPath)
+            cell.viewModel = OutgoingMessageTableViewCellViewModel(message: message)
+            return cell
+        }
+
+    }
+
 }

@@ -10,10 +10,19 @@ import Foundation
 
 struct MessagingViewModel {
     let title: String
+    let user: User
+    let messages: [Message]
+
 }
 
 extension MessagingViewModel {
     init(user: User) {
         title = user.login
+        self.user = user
+        // FIXME: dummy messages data used for now. In real app, this array of messages will be provided as a parameter to the initializer itself.
+        messages = [ Message(text: "Hello!", sender: .current),
+                     Message(text: "Hello! Hello!", sender: user),
+                     Message(text: "The quick brown fox jumped over the lazy dog.", sender: .current),
+                     Message(text: "The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. ", sender: user) ]
     }
 }

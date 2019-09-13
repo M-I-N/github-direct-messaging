@@ -52,22 +52,31 @@
                                     <constraint firstAttribute="height" constant="40" id="G5T-aY-WJY"/>
                                 </constraints>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eYZ-YQ-ilG">
+                                <rect key="frame" x="0.0" y="44" width="414" height="752"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jWb-8P-6vH" firstAttribute="bottom" secondItem="c7a-bc-Wfe" secondAttribute="bottom" constant="-34" id="6Dx-sP-MMD">
                                 <variation key="heightClass=compact-widthClass=regular" constant="-21"/>
                             </constraint>
+                            <constraint firstItem="eYZ-YQ-ilG" firstAttribute="leading" secondItem="o53-d7-2rs" secondAttribute="leading" id="DSU-LK-xzN"/>
                             <constraint firstAttribute="trailing" secondItem="c7a-bc-Wfe" secondAttribute="trailing" id="VwB-4f-zGc"/>
                             <constraint firstItem="c7a-bc-Wfe" firstAttribute="leading" secondItem="o53-d7-2rs" secondAttribute="leading" id="XY6-F6-qXb"/>
                             <constraint firstItem="WC9-Yu-bKK" firstAttribute="leading" secondItem="jWb-8P-6vH" secondAttribute="leading" constant="10" id="XtN-ic-wKm"/>
+                            <constraint firstItem="eYZ-YQ-ilG" firstAttribute="top" secondItem="jWb-8P-6vH" secondAttribute="top" id="bYv-fC-ceQ"/>
+                            <constraint firstAttribute="trailing" secondItem="eYZ-YQ-ilG" secondAttribute="trailing" id="pAm-bz-a8p"/>
                             <constraint firstItem="WC9-Yu-bKK" firstAttribute="top" secondItem="c7a-bc-Wfe" secondAttribute="top" constant="10" id="sYc-w9-z9Y"/>
                             <constraint firstItem="jWb-8P-6vH" firstAttribute="trailing" secondItem="WC9-Yu-bKK" secondAttribute="trailing" constant="10" id="tuq-3o-VfV"/>
+                            <constraint firstItem="c7a-bc-Wfe" firstAttribute="top" secondItem="eYZ-YQ-ilG" secondAttribute="bottom" id="xri-Kn-9hX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jWb-8P-6vH"/>
                     </view>
                     <connections>
                         <outlet property="messageInputTextView" destination="yC2-2w-t2b" id="JE7-uE-nSW"/>
+                        <outlet property="messagesTableView" destination="eYZ-YQ-ilG" id="4NF-gi-JrZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQK-Yd-dHq" userLabel="First Responder" sceneMemberID="firstResponder"/>
