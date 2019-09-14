@@ -78,8 +78,10 @@
                         <viewLayoutGuide key="safeArea" id="jWb-8P-6vH"/>
                     </view>
                     <connections>
+                        <outlet property="messageInputBoxHeightConstraint" destination="beL-ck-S0w" id="fuy-uE-8p0"/>
                         <outlet property="messageInputTextView" destination="yC2-2w-t2b" id="JE7-uE-nSW"/>
                         <outlet property="messagesTableView" destination="eYZ-YQ-ilG" id="4NF-gi-JrZ"/>
+                        <outlet property="messagesTableViewTopConstraint" destination="bYv-fC-ceQ" id="8yt-iF-nlY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQK-Yd-dHq" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,9 @@ class MessagingViewController: UIViewController {
     @IBOutlet private weak var messagesTableView: UITableView!
     @IBOutlet private weak var messageInputTextView: UITextView!
     
+    @IBOutlet weak var messagesTableViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var messageInputBoxHeightConstraint: NSLayoutConstraint!
+    
     var viewModel: MessagingViewModel!
 
     override func viewDidLoad() {
@@ -33,6 +36,7 @@ class MessagingViewController: UIViewController {
         
         viewModel.newIncomingMessageListerner = { [unowned self] in
             self.messagesTableView.reloadData()
+            self.messagesTableView.scrollToBottom()
         }
     }
     
@@ -50,8 +54,48 @@ class MessagingViewController: UIViewController {
             let message = Message(text: messageText, sender: User.current)
             viewModel.send(message: message) { [unowned self] _ in
                 self.messagesTableView.reloadData()
+                self.messagesTableView.scrollToBottom()
             }
         }
+    }
+    
+    override func keyboardWillShow(notification: NSNotification) {
+        super.keyboardWillShow(notification: notification)
+        // In conjunction with the implementation of super class, some adjustment is needed on the table view for good UX.
+        guard messagesTableViewTopConstraint.constant == 0,
+            let userInfo = notification.userInfo,
+            let keyboardHeight = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
+            else { return }
+
+        guard !isEnoughContentAvailableOnTableView(for: keyboardHeight) else { return }
+        
+        UIView.animate(withDuration: 0.5) {
+            self.messagesTableViewTopConstraint.constant += keyboardHeight
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    override func keyboardWillHide(notification: NSNotification) {
+        super.keyboardWillHide(notification: notification)
+        // In conjunction with the implementation of super class, some adjustment is needed on the table view for good UX.
+        guard messagesTableViewTopConstraint.constant != 0,
+            let userInfo = notification.userInfo,
+            let _ = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height // Though the height isn't used here, calculation is made to be sure that the event is from keyboard hiding notification.
+            else { return }
+
+        UIView.animate(withDuration: 0.5) {
+            self.messagesTableViewTopConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    /// Determines whether there is enough content available in the table view so that pushing it out of screen doesn't hide every content.
+    ///
+    /// - Parameter keyboardHeight: The height of the keyboard.
+    /// - Returns: A Boolean value indicating whether enough content is available or not.
+    private func isEnoughContentAvailableOnTableView(for keyboardHeight: CGFloat) -> Bool {
+        let totalHeight = messagesTableView.contentSize.height + keyboardHeight
+        return totalHeight > messagesTableView.bounds.height + messageInputBoxHeightConstraint.constant
     }
     
 }

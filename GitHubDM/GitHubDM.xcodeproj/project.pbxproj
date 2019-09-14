@@ -14,6 +14,7 @@
 		AF38C8A6232B790B005C55D9 /* IncomingMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF38C8A4232B790B005C55D9 /* IncomingMessageTableViewCell.xib */; };
 		AF38C8A8232B823F005C55D9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF38C8A7232B823F005C55D9 /* Message.swift */; };
 		AF38C8AA232BAD94005C55D9 /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF38C8A9232BAD94005C55D9 /* UIViewController+NavigationBar.swift */; };
+		AF76A489232D603D00190E67 /* UITableView+Scrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF76A488232D603D00190E67 /* UITableView+Scrolling.swift */; };
 		AF973E8A2328F17600973246 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973E892328F17600973246 /* Coordinator.swift */; };
 		AF973E8C2328F19D00973246 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973E8B2328F19D00973246 /* ApplicationCoordinator.swift */; };
 		AF973E8E2328F29F00973246 /* FollowerListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973E8D2328F29F00973246 /* FollowerListCoordinator.swift */; };
@@ -51,6 +52,7 @@
 		AF38C8A4232B790B005C55D9 /* IncomingMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomingMessageTableViewCell.xib; sourceTree = "<group>"; };
 		AF38C8A7232B823F005C55D9 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		AF38C8A9232BAD94005C55D9 /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
+		AF76A488232D603D00190E67 /* UITableView+Scrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Scrolling.swift"; sourceTree = "<group>"; };
 		AF973E892328F17600973246 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		AF973E8B2328F19D00973246 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		AF973E8D2328F29F00973246 /* FollowerListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListCoordinator.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				AFB32F5E232A035E007C15BF /* Reusable.swift */,
 				AFB32F61232A0475007C15BF /* UITableView+Reusable.swift */,
+				AF76A488232D603D00190E67 /* UITableView+Scrolling.swift */,
 				AFB32F69232A0C3C007C15BF /* String+Extension.swift */,
 				AFB32F6B232A1425007C15BF /* UIImageView+Download.swift */,
 				AFB32F6D232A40CF007C15BF /* StoryboardInstantiable.swift */,
@@ -350,6 +353,7 @@
 				AFC01494232A8666008C54A3 /* UITextView+Placeholder.swift in Sources */,
 				AF973EA2232915BE00973246 /* MessagingCoordinator.swift in Sources */,
 				AF38C8AA232BAD94005C55D9 /* UIViewController+NavigationBar.swift in Sources */,
+				AF76A489232D603D00190E67 /* UITableView+Scrolling.swift in Sources */,
 				AFB32F65232A0568007C15BF /* FollowerTableViewCell.swift in Sources */,
 				AF38C8A8232B823F005C55D9 /* Message.swift in Sources */,
 				AF973E8E2328F29F00973246 /* FollowerListCoordinator.swift in Sources */,
