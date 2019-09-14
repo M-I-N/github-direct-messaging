@@ -46,6 +46,9 @@
                                         <state key="normal" title="Send">
                                             <color key="titleColor" red="0.10569038242101669" green="0.48762220144271851" blue="0.9989357590675354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="KJ4-UO-Rgr" eventType="touchUpInside" id="hzf-rV-9OS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

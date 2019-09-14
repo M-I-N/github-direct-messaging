@@ -30,6 +30,10 @@ class MessagingViewController: UIViewController {
         messagesTableView.registerReusableCell(IncomingMessageTableViewCell.self)
         messagesTableView.rowHeight = UITableView.automaticDimension
         messagesTableView.estimatedRowHeight = 100
+        
+        viewModel.newIncomingMessageListerner = { [unowned self] in
+            self.messagesTableView.reloadData()
+        }
     }
     
     @objc func handleTap() {
@@ -39,7 +43,17 @@ class MessagingViewController: UIViewController {
     deinit {
         shouldStopHandlingViewForKeyboardAppearance()
     }
-
+    
+    @IBAction func sendButtonTapped(_ sender: UIButton) {
+        if let messageText = messageInputTextView.text, !messageText.isEmpty {
+            messageInputTextView.text = ""
+            let message = Message(text: messageText, sender: User.current)
+            viewModel.send(message: message) { [unowned self] _ in
+                self.messagesTableView.reloadData()
+            }
+        }
+    }
+    
 }
 
 extension MessagingViewController: StoryboardInstantiable {

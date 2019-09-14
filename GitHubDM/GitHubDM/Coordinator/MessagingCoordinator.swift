@@ -20,7 +20,7 @@ class MessagingCoordinator: Coordinator {
 
     func start() {
         let messagingViewController = MessagingViewController.instantiateFromStoryboard()
-        messagingViewController.viewModel = MessagingViewModel(user: user)
+        messagingViewController.viewModel = MessagingViewModel(user: user, client: GitHubClient())
         presenter.pushViewController(messagingViewController, animated: true)
     }
 

@@ -29,6 +29,12 @@ class GitHubClient: GenericAPIClient {
         fetch(with: endpoint.request, decoder: JSONDecoder(), completion: completion)
     }
     
+    func post(message: Message, to user: User, completion: @escaping (Bool) -> Void) {
+        // At this point the post is dummy post. In real app, this should call POST method of the Direct Messaging Endpoint
+        // Considering STATUS of every POST Response is success
+        completion(true)
+    }
+    
 }
 
 struct UsersEndpoint: Endpoint {
