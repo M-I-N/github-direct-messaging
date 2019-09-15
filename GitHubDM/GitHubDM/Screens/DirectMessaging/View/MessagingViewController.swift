@@ -51,8 +51,7 @@ class MessagingViewController: UIViewController {
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         if let messageText = messageInputTextView.text, !messageText.isEmpty {
             messageInputTextView.text = ""
-            let message = Message(text: messageText, sender: User.current)
-            viewModel.send(message: message) { [unowned self] _ in
+            viewModel.send(text: messageText) { [unowned self] _ in
                 self.messagesTableView.reloadData()
                 self.messagesTableView.scrollToBottom()
             }

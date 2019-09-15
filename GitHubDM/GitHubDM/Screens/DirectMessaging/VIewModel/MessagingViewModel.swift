@@ -27,7 +27,8 @@ class MessagingViewModel {
         // load messages from local database
     }
     
-    func send(message: Message, completion: @escaping (Bool) -> Void) {
+    func send(text: String, completion: @escaping (Bool) -> Void) {
+        let message = Message(text: text, sender: User.current)
         messages.append(message)
         client.post(message: message, to: user, completion: completion)
         
