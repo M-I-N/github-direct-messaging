@@ -12,6 +12,7 @@ class FollowerListViewModel {
     
     let title = "GitHub DM"
     private (set) var followers = [User]()
+    var onErrorHandling: ((String, String) -> Void)?
     
     private var client: GitHubClient? = nil
     
@@ -41,10 +42,30 @@ class FollowerListViewModel {
             case .success(let users):
                 self.followers = users
             case .failure(let error):
-                print(error)
+                switch error {
+                case .standard(let apiError):
+                    print(apiError.customDescription)
+                case .limitExceeded(let rateLimit):
+                    self.handleRateLimitError(rateLimit: rateLimit)
+                }
             }
             completion()
         }
     }
     
+}
+
+extension FollowerListViewModel: RateLimitReporting {
+
+    func handleError(title: String, message: String) {
+        onErrorHandling?(title, message)
+    }
+
+    func handleRateLimitError(rateLimit: GitHubClientError.RateLimit) {
+        guard let timeDifference = Date().howLongUntil(dateInFuture: rateLimit.resetDate) else { return }
+        let title = "Can't fetch followers at this moment."
+        let message = "Please try again after \(timeDifference). If you still don't see your followers please contact with the support team."
+        handleError(title: title, message: message)
+    }
+
 }

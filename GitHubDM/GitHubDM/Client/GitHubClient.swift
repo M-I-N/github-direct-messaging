@@ -24,9 +24,27 @@ class GitHubClient: GenericAPIClient {
     /// Get the users from UsersEndpoint. The completion is guaranteed to be performed on the main queue.
     ///
     /// - Parameter completion: A closure that will be executed after fetch operation.
-    func getUsers(completion: @escaping (Result<[User], APIError>) -> Void) {
+    func getUsers(completion: @escaping (Result<[User], GitHubClientError>) -> Void) {
         let endpoint = UsersEndpoint()
-        fetch(with: endpoint.request, decoder: JSONDecoder(), completion: completion)
+        let userResponseCompletionClosure: ((Result<[User], APIError>) -> Void) = { result in
+            switch result {
+            case .success(let userResponse):
+                completion(.success(userResponse))
+            case .failure(let error):
+                switch error {
+                case .responseUnsuccessful(let statusCode, let headers):
+                    do {
+                        let rateLimit = try GitHubClientError.RateLimit(from: headers)
+                        completion(.failure(.limitExceeded(rateLimit: rateLimit)))
+                    } catch {
+                        completion(.failure(.standard(apiError: .responseUnsuccessful(statusCode: statusCode, headers: headers))))
+                    }
+                default:
+                    completion(.failure(.standard(apiError: error)))
+                }
+            }
+        }
+        fetch(with: endpoint.request, decoder: JSONDecoder(), completion: userResponseCompletionClosure)
     }
     
     func post(message: Message, to user: User, completion: @escaping (Bool) -> Void) {
