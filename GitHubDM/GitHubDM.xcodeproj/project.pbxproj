@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF0A4A8F2330ABE00026C2DD /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A4A8E2330ABE00026C2DD /* UserStorage.swift */; };
 		AF38C89E232B474E005C55D9 /* MessageTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF38C89D232B474E005C55D9 /* MessageTableViewCellViewModel.swift */; };
 		AF38C8A1232B5DA5005C55D9 /* OutgoingMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF38C89F232B5DA5005C55D9 /* OutgoingMessageTableViewCell.swift */; };
 		AF38C8A2232B5DA5005C55D9 /* OutgoingMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF38C8A0232B5DA5005C55D9 /* OutgoingMessageTableViewCell.xib */; };
@@ -25,6 +26,8 @@
 		AF973E9B2329135700973246 /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973E9A2329135700973246 /* MessagingViewController.swift */; };
 		AF973E9F2329144400973246 /* MessagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973E9E2329144400973246 /* MessagingViewModel.swift */; };
 		AF973EA2232915BE00973246 /* MessagingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF973EA1232915BE00973246 /* MessagingCoordinator.swift */; };
+		AF97EFA8232E48AE00ECFD48 /* GitHubDM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF97EFA6232E48AE00ECFD48 /* GitHubDM.xcdatamodeld */; };
+		AF97EFAB232E4BA700ECFD48 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF97EFAA232E4BA600ECFD48 /* CoreDataManager.swift */; };
 		AFB32F5F232A035E007C15BF /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F5E232A035E007C15BF /* Reusable.swift */; };
 		AFB32F62232A0475007C15BF /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F61232A0475007C15BF /* UITableView+Reusable.swift */; };
 		AFB32F65232A0568007C15BF /* FollowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB32F63232A0568007C15BF /* FollowerTableViewCell.swift */; };
@@ -44,11 +47,14 @@
 		AFE8004E23293ED400341764 /* GenericAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8004B23293ED400341764 /* GenericAPIClient.swift */; };
 		AFE8004F23293ED400341764 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE8004C23293ED400341764 /* Endpoint.swift */; };
 		AFE800512329421C00341764 /* GitHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE800502329421C00341764 /* GitHubClient.swift */; };
+		AFED5725232E78080003E930 /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED5724232E78070003E930 /* CoreDataError.swift */; };
+		AFED5727232E79060003E930 /* MessageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED5726232E79050003E930 /* MessageStorage.swift */; };
 		AFF42575232F48AE00A29DDF /* GitHubAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF42574232F48AE00A29DDF /* GitHubAPIError.swift */; };
 		AFF42577232F4BCF00A29DDF /* Decodable+Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF42576232F4BCF00A29DDF /* Decodable+Any.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF0A4A8E2330ABE00026C2DD /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		AF38C89D232B474E005C55D9 /* MessageTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		AF38C89F232B5DA5005C55D9 /* OutgoingMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessageTableViewCell.swift; sourceTree = "<group>"; };
 		AF38C8A0232B5DA5005C55D9 /* OutgoingMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutgoingMessageTableViewCell.xib; sourceTree = "<group>"; };
@@ -67,6 +73,8 @@
 		AF973E9A2329135700973246 /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
 		AF973E9E2329144400973246 /* MessagingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewModel.swift; sourceTree = "<group>"; };
 		AF973EA1232915BE00973246 /* MessagingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingCoordinator.swift; sourceTree = "<group>"; };
+		AF97EFA7232E48AE00ECFD48 /* GitHubDM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GitHubDM.xcdatamodel; sourceTree = "<group>"; };
+		AF97EFAA232E4BA600ECFD48 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		AFB32F5E232A035E007C15BF /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		AFB32F61232A0475007C15BF /* UITableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
 		AFB32F63232A0568007C15BF /* FollowerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +96,8 @@
 		AFE8004B23293ED400341764 /* GenericAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericAPIClient.swift; sourceTree = "<group>"; };
 		AFE8004C23293ED400341764 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		AFE800502329421C00341764 /* GitHubClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubClient.swift; sourceTree = "<group>"; };
+		AFED5724232E78070003E930 /* CoreDataError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataError.swift; sourceTree = "<group>"; };
+		AFED5726232E79050003E930 /* MessageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStorage.swift; sourceTree = "<group>"; };
 		AFF42574232F48AE00A29DDF /* GitHubAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPIError.swift; sourceTree = "<group>"; };
 		AFF42576232F4BCF00A29DDF /* Decodable+Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+Any.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +191,18 @@
 			path = VIewModel;
 			sourceTree = "<group>";
 		};
+		AF97EFA9232E497200ECFD48 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				AF97EFA6232E48AE00ECFD48 /* GitHubDM.xcdatamodeld */,
+				AF97EFAA232E4BA600ECFD48 /* CoreDataManager.swift */,
+				AFED5724232E78070003E930 /* CoreDataError.swift */,
+				AF0A4A8E2330ABE00026C2DD /* UserStorage.swift */,
+				AFED5726232E79050003E930 /* MessageStorage.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		AFB32F60232A0458007C15BF /* Protocols+Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +249,7 @@
 				AFE800522329422200341764 /* Client */,
 				AFE1E9F22328EEBF004913FD /* Resources */,
 				AFB32F60232A0458007C15BF /* Protocols+Extensions */,
+				AF97EFA9232E497200ECFD48 /* Persistence */,
 			);
 			path = GitHubDM;
 			sourceTree = "<group>";
@@ -355,7 +378,9 @@
 				AF38C8A5232B790B005C55D9 /* IncomingMessageTableViewCell.swift in Sources */,
 				AFE800512329421C00341764 /* GitHubClient.swift in Sources */,
 				AFB32F62232A0475007C15BF /* UITableView+Reusable.swift in Sources */,
+				AF0A4A8F2330ABE00026C2DD /* UserStorage.swift in Sources */,
 				AFE8004F23293ED400341764 /* Endpoint.swift in Sources */,
+				AF97EFAB232E4BA700ECFD48 /* CoreDataManager.swift in Sources */,
 				AF973E932328FE4000973246 /* FollowerListViewModel.swift in Sources */,
 				AF973E8A2328F17600973246 /* Coordinator.swift in Sources */,
 				AF973E8C2328F19D00973246 /* ApplicationCoordinator.swift in Sources */,
@@ -371,7 +396,10 @@
 				AF76A489232D603D00190E67 /* UITableView+Scrolling.swift in Sources */,
 				AFB32F65232A0568007C15BF /* FollowerTableViewCell.swift in Sources */,
 				AF38C8A8232B823F005C55D9 /* Message.swift in Sources */,
+				AFED5727232E79060003E930 /* MessageStorage.swift in Sources */,
 				AF973E8E2328F29F00973246 /* FollowerListCoordinator.swift in Sources */,
+				AF97EFA8232E48AE00ECFD48 /* GitHubDM.xcdatamodeld in Sources */,
+				AFED5725232E78080003E930 /* CoreDataError.swift in Sources */,
 				AF973E982329050000973246 /* User.swift in Sources */,
 				AFF42577232F4BCF00A29DDF /* Decodable+Any.swift in Sources */,
 				AFB32F68232A0613007C15BF /* FollowerTableViewCellViewModel.swift in Sources */,
@@ -568,6 +596,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AF97EFA6232E48AE00ECFD48 /* GitHubDM.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AF97EFA7232E48AE00ECFD48 /* GitHubDM.xcdatamodel */,
+			);
+			currentVersion = AF97EFA7232E48AE00ECFD48 /* GitHubDM.xcdatamodel */;
+			path = GitHubDM.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AFE1E9D22328EC69004913FD /* Project object */;
 }

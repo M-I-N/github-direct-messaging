@@ -17,6 +17,7 @@ class MessagingViewController: UIViewController {
     @IBOutlet weak var messageInputBoxHeightConstraint: NSLayoutConstraint!
     
     var viewModel: MessagingViewModel!
+    private lazy var activityIndicatorView = UIActivityIndicatorView(style: .gray)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +34,19 @@ class MessagingViewController: UIViewController {
         messagesTableView.registerReusableCell(IncomingMessageTableViewCell.self)
         messagesTableView.rowHeight = UITableView.automaticDimension
         messagesTableView.estimatedRowHeight = 100
-        
+        messagesTableView.backgroundView = activityIndicatorView
+        activityIndicatorView.startAnimating()
         viewModel.newIncomingMessageListerner = { [unowned self] in
+            self.messagesTableView.reloadData()
+            self.messagesTableView.scrollToBottom()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // fetching messages from local database is performed here because this fetch doesn't require waiting for async operation. So if this fetch is done from the viewDidLoad there is a UI flickering for scroll to bottom operation of UITableView.
+        viewModel.fetchMessages { [unowned self] in
+            self.activityIndicatorView.stopAnimating()
             self.messagesTableView.reloadData()
             self.messagesTableView.scrollToBottom()
         }
