@@ -38,9 +38,11 @@ class FollowerListViewController: UITableViewController {
         tableView.separatorStyle = .none                    // separator is handled from the cell design itself
         // show a progress before fetching from network
         activityIndicatorView.startAnimating()
-        viewModel.fetchFollowers { [unowned self] in
-            // hide progress before fetching from network
-            self.activityIndicatorView.stopAnimating()
+        viewModel.fetchFollowers()
+        viewModel.onAvailabilityOfNewFollowers = { [unowned self] in
+            if self.activityIndicatorView.isAnimating {
+                self.activityIndicatorView.stopAnimating()
+            }
             self.tableView.reloadData()
         }
     }
@@ -51,20 +53,20 @@ class FollowerListViewController: UITableViewController {
 extension FollowerListViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.followers.count
+        return viewModel.numberOfFollowers(in: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = FollowerTableViewCell.dequeue(fromTableView: tableView, atIndex: indexPath)
 
-        let follower = viewModel.followers[indexPath.row]
+        let follower = viewModel.follower(at: indexPath)
         cell.viewModel = FollowerTableViewCellViewModel(follower: follower)
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let follower = viewModel.followers[indexPath.row]
+        let follower = viewModel.selectedFollower(at: indexPath)
         delegate?.followerListViewController(self, didSelect: follower)
     }
     

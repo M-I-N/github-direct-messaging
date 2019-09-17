@@ -14,13 +14,17 @@ class CoreDataManager {
     
     private init() { }
     
-    private lazy var persistentContainer: NSPersistentContainer = {
+    lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "GitHubDM")
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError(error.localizedDescription)
             }
         }
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        container.viewContext.undoManager = nil
+        container.viewContext.shouldDeleteInaccessibleFaults = true
+        container.viewContext.automaticallyMergesChangesFromParent = true
         return container
     }()
     
@@ -38,6 +42,11 @@ class CoreDataManager {
     func initManagedObject<T: NSManagedObject>() -> T {
         let managedObj = T(context: persistentContainer.viewContext)
         return managedObj
+    }
+
+    func initManagedObject<T: NSManagedObject>(for context: NSManagedObjectContext) -> T {
+        let managedObject = T(context: context)
+        return managedObject
     }
     
     func fecth<T: NSManagedObject>(withFilter predicates: NSCompoundPredicate? = nil, sorting sorters: [NSSortDescriptor]? = nil) -> [T] {
