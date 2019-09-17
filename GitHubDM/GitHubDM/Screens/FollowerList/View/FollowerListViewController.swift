@@ -45,6 +45,11 @@ class FollowerListViewController: UITableViewController {
             }
             self.tableView.reloadData()
         }
+        viewModel.onErrorHandling = { [unowned self] title, message in
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(alertController, animated: true)
+        }
     }
 
 }

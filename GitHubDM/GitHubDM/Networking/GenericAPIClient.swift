@@ -25,7 +25,7 @@ extension GenericAPIClient {
                 return
             }
             guard httpResponse.statusCode == 200 else {
-                completion(nil, .responseUnsuccessful(statusCode: httpResponse.statusCode))
+                completion(nil, .responseUnsuccessful(statusCode: httpResponse.statusCode, headers: httpResponse.allHeaderFields))
                 return
             }
             guard let data = data else {
