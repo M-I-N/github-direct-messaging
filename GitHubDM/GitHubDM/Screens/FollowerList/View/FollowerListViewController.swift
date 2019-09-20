@@ -39,7 +39,8 @@ class FollowerListViewController: UITableViewController {
         // show a progress before fetching from network
         activityIndicatorView.startAnimating()
         viewModel.fetchFollowers()
-        viewModel.onAvailabilityOfNewFollowers = { [unowned self] in
+        tableView.dataSource = viewModel.dataSource
+        viewModel.dataSource.data.addAndNotify(observer: self) { [unowned self] _ in
             if self.activityIndicatorView.isAnimating {
                 self.activityIndicatorView.stopAnimating()
             }
@@ -52,27 +53,9 @@ class FollowerListViewController: UITableViewController {
         }
     }
 
-}
-
-// MARK: - Table view data source and delegate
-extension FollowerListViewController {
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfFollowers(in: section)
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = FollowerTableViewCell.dequeue(fromTableView: tableView, atIndex: indexPath)
-
-        let follower = viewModel.follower(at: indexPath)
-        cell.viewModel = FollowerTableViewCellViewModel(follower: follower)
-
-        return cell
-    }
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let follower = viewModel.selectedFollower(at: indexPath)
+        let follower = viewModel.dataSource.data.value[indexPath.row]
         delegate?.followerListViewController(self, didSelect: follower)
     }
-    
+
 }

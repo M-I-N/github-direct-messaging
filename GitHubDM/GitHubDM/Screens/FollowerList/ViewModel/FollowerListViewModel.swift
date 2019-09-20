@@ -13,31 +13,12 @@ class FollowerListViewModel: NSObject {
     
     let title = "GitHub DM"
 
-    /// Closure to be called when new followers are fetched and synced with the storage.
-    var onAvailabilityOfNewFollowers: (() -> Void)?
+    let dataSource = FollowerlistTableViewDataSource(persistentContainer: CoreDataManager.shared.persistentContainer) { (user, cell) in
+        cell.viewModel = FollowerTableViewCellViewModel(follower: user)
+    }
     var onErrorHandling: ((String, String) -> Void)?
     
     private let client: GitHubClient
-    private let persistentContainer = CoreDataManager.shared.persistentContainer
-
-    private lazy var fetchedResultsController: NSFetchedResultsController<UserData> = {
-        let entityName = String(describing: UserData.self)
-        let fetchRequest = NSFetchRequest<UserData>(entityName: entityName)
-        fetchRequest.sortDescriptors = [ NSSortDescriptor(key: "id", ascending: true) ]
-
-        let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                    managedObjectContext: persistentContainer.viewContext,
-                                                    sectionNameKeyPath: nil, cacheName: nil)
-        controller.delegate = self
-
-        do {
-            try controller.performFetch()
-        } catch {
-            print(error)
-        }
-
-        return controller
-    }()
     
     /// Initializer with network client.
     ///
@@ -56,7 +37,7 @@ class FollowerListViewModel: NSObject {
             guard let self = self else { return }
             switch result {
             case .success(let users):
-                UserStorage.shared.sync(users: users, with: self.persistentContainer)
+                UserStorage.shared.sync(users: users, with: self.dataSource.persistentContainer)
             case .failure(let error):
                 switch error {
                 case .standard(let apiError):
@@ -68,31 +49,6 @@ class FollowerListViewModel: NSObject {
         }
     }
 
-    var numberOfSections: Int {
-        return fetchedResultsController.sections?.count ?? 0
-    }
-
-    func numberOfFollowers(in section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
-    }
-
-    func follower(at indexPath: IndexPath) -> User {
-        let userData = fetchedResultsController.object(at: indexPath)
-        let user = User(userData: userData)!
-        return user
-    }
-
-    func selectedFollower(at indexPath: IndexPath) -> User {
-        return follower(at: indexPath)
-    }
-
-}
-
-extension FollowerListViewModel: NSFetchedResultsControllerDelegate {
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        // new data available
-        onAvailabilityOfNewFollowers?()
-    }
 }
 
 extension FollowerListViewModel: RateLimitReporting {
