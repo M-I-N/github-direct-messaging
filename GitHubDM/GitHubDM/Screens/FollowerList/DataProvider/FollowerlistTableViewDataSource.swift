@@ -1,5 +1,5 @@
 //
-//  FollowerListViewModel+DataProvider.swift
+//  FollowerlistTableViewDataSource.swift
 //  GitHubDM
 //
 //  Created by Mufakkharul Islam Nayem on 9/20/19.

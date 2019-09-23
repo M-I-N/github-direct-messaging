@@ -41,7 +41,7 @@
 		AFC01496232AAF55008C54A3 /* UIViewController+KeyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC01495232AAF55008C54A3 /* UIViewController+KeyboardHandling.swift */; };
 		AFE15CFE2334C968003B0C9F /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15CFD2334C968003B0C9F /* Observable.swift */; };
 		AFE15D002334CA57003B0C9F /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15CFF2334CA57003B0C9F /* TableViewDataSource.swift */; };
-		AFE15D032334CEF0003B0C9F /* FollowerListViewModel+DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15D022334CEF0003B0C9F /* FollowerListViewModel+DataProvider.swift */; };
+		AFE15D032334CEF0003B0C9F /* FollowerlistTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE15D022334CEF0003B0C9F /* FollowerlistTableViewDataSource.swift */; };
 		AFE1E9DE2328EC69004913FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE1E9DD2328EC69004913FD /* AppDelegate.swift */; };
 		AFE1E9E52328EC6A004913FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE1E9E42328EC6A004913FD /* Assets.xcassets */; };
 		AFE1E9E82328EC6A004913FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE1E9E62328EC6A004913FD /* LaunchScreen.storyboard */; };
@@ -91,7 +91,7 @@
 		AFC01495232AAF55008C54A3 /* UIViewController+KeyboardHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+KeyboardHandling.swift"; sourceTree = "<group>"; };
 		AFE15CFD2334C968003B0C9F /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		AFE15CFF2334CA57003B0C9F /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
-		AFE15D022334CEF0003B0C9F /* FollowerListViewModel+DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowerListViewModel+DataProvider.swift"; sourceTree = "<group>"; };
+		AFE15D022334CEF0003B0C9F /* FollowerlistTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerlistTableViewDataSource.swift; sourceTree = "<group>"; };
 		AFE1E9DA2328EC69004913FD /* GitHubDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE1E9DD2328EC69004913FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFE1E9E42328EC6A004913FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +135,7 @@
 			children = (
 				AFE1E9F12328EE9D004913FD /* View */,
 				AF973E942328FEF800973246 /* ViewModel */,
+				AFE7B03223387234000F67BD /* DataProvider */,
 			);
 			path = FollowerList;
 			sourceTree = "<group>";
@@ -143,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				AF973E902328FDA100973246 /* FollowerList */,
-				AFE15D022334CEF0003B0C9F /* FollowerListViewModel+DataProvider.swift */,
 				AF973E9D2329137900973246 /* DirectMessaging */,
 			);
 			path = Screens;
@@ -291,6 +291,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		AFE7B03223387234000F67BD /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				AFE15D022334CEF0003B0C9F /* FollowerlistTableViewDataSource.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
 		AFE8004923293ED400341764 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,7 +404,7 @@
 				AFE800512329421C00341764 /* GitHubClient.swift in Sources */,
 				AFB32F62232A0475007C15BF /* UITableView+Reusable.swift in Sources */,
 				AF0A4A8F2330ABE00026C2DD /* UserStorage.swift in Sources */,
-				AFE15D032334CEF0003B0C9F /* FollowerListViewModel+DataProvider.swift in Sources */,
+				AFE15D032334CEF0003B0C9F /* FollowerlistTableViewDataSource.swift in Sources */,
 				AFE8004F23293ED400341764 /* Endpoint.swift in Sources */,
 				AFE15CFE2334C968003B0C9F /* Observable.swift in Sources */,
 				AF97EFAB232E4BA700ECFD48 /* CoreDataManager.swift in Sources */,

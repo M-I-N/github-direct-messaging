@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class FollowerListViewModel: NSObject {
+struct FollowerListViewModel {
     
     let title = "GitHub DM"
 
@@ -33,8 +33,7 @@ class FollowerListViewModel: NSObject {
     ///
     /// - Remark: Look at `onAvailabilityOfNewFollowers: (() -> Void)?` also
     func fetchFollowers() {
-        client.getUsers { [weak self] result in
-            guard let self = self else { return }
+        client.getUsers { result in
             switch result {
             case .success(let users):
                 UserStorage.shared.sync(users: users, with: self.dataSource.persistentContainer)
