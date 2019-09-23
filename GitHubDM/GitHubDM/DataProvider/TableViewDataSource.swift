@@ -22,7 +22,7 @@ class TableViewDataSource<Model, Cell: UITableViewCell>: NSObject, ObservableDat
     let reuseIdentifier: String
     let cellConfigurator: CellConfigurator
 
-    init(model type: Model.Type, cell cellType: Cell.Type, reuseIdentifier: String = String(describing: Cell.self), cellConfiguration: @escaping CellConfigurator) {
+    init(model type: Model.Type, cell cellType: Cell.Type, reuseIdentifier: String = Cell.reuseIdentifier, cellConfiguration: @escaping CellConfigurator) {
         self.reuseIdentifier = reuseIdentifier
         self.cellConfigurator = cellConfiguration
     }
@@ -32,7 +32,7 @@ class TableViewDataSource<Model, Cell: UITableViewCell>: NSObject, ObservableDat
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! Cell
+        let cell: Cell = tableView.dequeueReusableCell(indexPath: indexPath)!
         let model = data.value[indexPath.row]
         cellConfigurator(model, cell)
         return cell

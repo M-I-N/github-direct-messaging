@@ -15,14 +15,14 @@ class FollowerlistTableViewDataSource: TableViewDataSource<User, FollowerTableVi
 
     init(persistentContainer: NSPersistentContainer,
          model type: User.Type, cell cellType: FollowerTableViewCell.Type,
-         reuseIdentifier: String = String(describing: FollowerTableViewCell.self),
+         reuseIdentifier: String = FollowerTableViewCell.reuseIdentifier,
          cellConfiguration: @escaping CellConfigurator) {
         self.persistentContainer = persistentContainer
         super.init(model: type, cell: cellType, reuseIdentifier: reuseIdentifier, cellConfiguration: cellConfiguration)
     }
 
     convenience init(persistentContainer: NSPersistentContainer, cellConfiguration: @escaping CellConfigurator) {
-        self.init(persistentContainer: persistentContainer, model: User.self, cell: FollowerTableViewCell.self, reuseIdentifier: String(describing: FollowerTableViewCell.self), cellConfiguration: cellConfiguration)
+        self.init(persistentContainer: persistentContainer, model: User.self, cell: FollowerTableViewCell.self, cellConfiguration: cellConfiguration)
     }
 
     private lazy var fetchedResultsController: NSFetchedResultsController<UserData> = {
@@ -47,7 +47,7 @@ class FollowerlistTableViewDataSource: TableViewDataSource<User, FollowerTableVi
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! FollowerTableViewCell
+        let cell = FollowerTableViewCell.dequeue(fromTableView: tableView, atIndex: indexPath)
         let userData = fetchedResultsController.object(at: indexPath)
         if let model = User(userData: userData) {
             cellConfigurator(model, cell)
