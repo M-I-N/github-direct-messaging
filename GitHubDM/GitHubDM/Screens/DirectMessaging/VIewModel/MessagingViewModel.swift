@@ -9,12 +9,13 @@
 import Foundation
 
 class MessagingViewModel {
-    let title: String
-    let user: User
+
     private (set) var messages = [Message]()
     var newIncomingMessageListerner: (() -> Void)?
     
     private let client: GitHubClient
+    private let title: String
+    private let user: User
 
     var titleFormattedAsGitHubHandle: String {
         return title.withMentioninPrefix
